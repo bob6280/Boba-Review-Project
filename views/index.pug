@@ -1,0 +1,33 @@
+extends layout
+
+block content
+  body(onload="updateReviews();updateFilter();updateUserInfo();updateTotalRating();checkLogin()")
+    header
+      .navigation-bar
+        img.logo(src='https://happylemonusa.com/wp-content/uploads/2022/01/V1.0-PLUS_HEAD-60.png', alt='HappyLemon Logo')
+        div#user_info
+
+    div#input_area
+      form#type_selector(action='/' method='post')
+        fieldset
+          label(for='beverage_type') beverage_type:&nbsp;
+          select#beverage_type(name='beverage_type' required='')
+            option(value='' selected='') choose type
+            option(value='all') All
+          input#filter(type='submit' value='filter')
+
+      form#write_button(action='/edit' method='get')
+        fieldset
+          input#write_user_name(type='hidden' name='current_user_name')
+          input#write_review_button(type='submit' value='review')
+
+      div#total_rating average_rating for !{filter_type}: !{average_rating}
+        div.rating_set ★★★★★
+          span#tr(class="star_rating") ★★★★★
+
+    div#display_area
+
+    script.
+        var local_beverages =!{JSON.stringify(beverages)}
+        var local_reviews =!{JSON.stringify(reviews)}
+        var local_average_rating =!{JSON.stringify(average_rating)}

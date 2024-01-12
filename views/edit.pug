@@ -1,0 +1,105 @@
+extends layout
+
+block content
+  body(onload="updateEditDisplayUserInfo();updateEditPageBeverage();")
+    header
+      .navigation-bar
+        img.logo(src='https://happylemonusa.com/wp-content/uploads/2022/01/V1.0-PLUS_HEAD-60.png', alt='HappyLemon Logo')
+        div#user_info
+    form#edit_form(class="mydiv" action='/edit' method='post' enctype="multipart/form-data")
+      .row
+        .beverage_name.centered-div
+          select#beverage_name(class="edit_beverage_name" name='beverage_name' onchange='selectBeverageName()')
+            option(value='' selected='' disabled='' hidden='') choose name
+        .beverage_type.centered-div
+          p Beverage Type:
+          p#display_beverage_type ---
+        .beverage_rate
+          .rate_label.centered-div
+            p Rate your drink:
+            p#display_beverage_rate 0 star
+          .rate
+            input#star5(type='radio' name='rate' value='5', onchange='updateRateText(5)')
+            label(for='star5' title='text') 5 stars
+            input#star4(type='radio' name='rate' value='4', onchange='updateRateText(4)')
+            label(for='star4' title='text') 4 stars
+            input#star3(type='radio' name='rate' value='3', onchange='updateRateText(3)')
+            label(for='star3' title='text') 3 stars
+            input#star2(type='radio' name='rate' value='2', onchange='updateRateText(2)')
+            label(for='star2' title='text') 2 stars
+            input#star1(type='radio' name='rate' value='1', onchange='updateRateText(1)')
+            label(for='star1' title='text') 1 star
+        .beverage_img.centered-div
+          label(for='beverage_img') Add One Photo Under 50K
+          input#beverage_img(type='file' accept='image/*' name='beverage_img' hidden='' multiple='' onchange='checkImgSize(event)')
+      div#image_preview
+      .review
+        textarea#review_text(name='review_text', rows='5', cols='50', placeholder='Write your review here...')
+      .input-fields
+        input#edit_user_name(type="hidden" name="user_name" value="")
+        input#edit_user_email(type="hidden" name="user_email" value="")
+        input#beverage_type(type="hidden" name="beverage_type" value="")
+        input#beverage_rate(type="hidden" name="beverage_rate" value="0")
+      .buttons
+        button#cancel_button(type='button' , onclick='location.href="/"') Cancel
+        button#submit_button(type='submit' , onclick='submitReview()') Submit
+
+    script.
+      function updateRateText(rate) {
+        if(rate === 1){
+          document.getElementById('display_beverage_rate').textContent = rate + ' star';
+          document.getElementById('beverage_rate').value = rate;
+        }else {
+          document.getElementById('display_beverage_rate').textContent = rate + ' stars';
+          document.getElementById('beverage_rate').value = rate;
+        }
+      }
+      function selectBeverageName() {
+          const beverage_name = document.getElementById('beverage_name').value;
+          console.log(beverage_name);
+          document.getElementById('display_beverage_type').textContent = document.getElementById(beverage_name).getAttribute("beverage_type");
+          document.getElementById('beverage_type').value = document.getElementById(beverage_name).getAttribute("beverage_type");
+      }
+      function submitReview() {
+        // Simulate submitting the review data to the server (replace with your actual submission logic)
+        // Assuming the submission is successful, show an alert and then redirect to '/'
+        alert("Your review is successfully submitted.");
+        location.href = "/";
+      }
+      function checkImgSize(event) {
+        const uploadField = document.getElementById("beverage_img");
+        if(uploadField.files[0].size > 50000) {
+           alert("File too big!");
+           upl.value = "";
+        } else {
+          const input = event.target;
+          const container = document.getElementById('image_preview');
+
+          for (const file of input.files) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+              const img = document.createElement('img');
+              img.src = e.target.result;
+              img.width = 200;
+              img.height = 200;
+
+              const deleteBtn = document.createElement('button');
+              deleteBtn.textContent = 'Delete';
+              deleteBtn.onclick = function() {
+                container.removeChild(div);
+              };
+
+              const div = document.createElement('div');
+              div.appendChild(img);
+              div.appendChild(deleteBtn);
+
+              container.appendChild(div);
+            };
+
+            reader.readAsDataURL(file);
+          }
+
+        }
+      }
+    script.
+      var local_beverages =!{JSON.stringify(beverages)}

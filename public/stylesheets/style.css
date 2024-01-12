@@ -1,0 +1,450 @@
+/*home page*/
+.navigation-bar {
+  background-color: #ffcc00;
+  padding: 10px 0;
+  align-items: center;
+}
+
+.logo {
+  max-width: 100px;
+  margin: 0 20px;
+}
+
+.user-info {
+  margin: 20px;
+  float: right;
+}
+
+#type_selector {
+  float: left;
+  margin-right: 100px;
+  border: 0;
+  width: 400px;
+}
+
+fieldset {
+  border: 0;
+}
+
+#write_button {
+  float: left;
+  margin-right: 150px;
+}
+
+#write_review_button:disabled {
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #000000;
+  font-size: 15px;
+}
+
+#total_rating {
+  margin: 15px 0px 34px 50px;
+  float: left;
+}
+
+#input_area {
+  margin: 30px;
+}
+
+#display_area {
+  clear: both;
+}
+
+.review_display {
+  float: left;
+  width: 360px;
+  background-color: #E8EBEE;
+  padding: 10px;
+  margin: 10px;
+  font-size: 14px;
+}
+
+.review_display img {
+  height: 270px;
+  width: auto;
+  max-width: 270px;
+}
+
+.review_display p {
+  margin: 0px;
+}
+
+
+.review_display .display_beverage_name {
+  clear: both;
+  display: block;
+}
+
+.review_display .display_beverage_type {
+  display: block;
+}
+
+.review_display .display_rating {
+  display: inline;
+}
+
+.review_display .display_review {
+  clear: both;
+}
+
+.btn-log {
+  float: right;
+  margin: 11px 5px;
+}
+
+.btn-log {
+  background-color: #ffcc00;
+  border-radius: 12px;
+  transition-duration: 0.4s;
+  font-size: 16px;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+.btn-log:hover {
+  background-color: #555555;
+  color: white;
+}
+
+#filter, #write_review_button {
+  background-color: #ffcc00;
+  color: #0000ee;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px;
+}
+
+#filter:hover, #review:hover:enabled {
+  background-color: #ffcc00;
+}
+
+#review:disabled {
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #e7e7e7;
+}
+
+
+/*css code for start rating  cited from: https://stackoverflow.com/questions/1987524/turn-a-number-into-star-rating-display-using-jquery-and-css*/
+.star_rating::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: '★★★★★';
+  color: gold;
+}
+
+.star_rating  {
+  position: absolute;
+  display: inline-block;
+  color: #616161; // contract
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  width: 30%;
+}
+
+.rating_set {
+  position: absolute;
+  color: #636363; // contract
+}
+
+.review_rating {
+  display: inline;
+  margin-left: 10px;
+  color: #636363;
+}
+
+select {
+  width: 34%;
+  padding: 7px 7px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  fon-size: 16px;
+}
+
+/*.detail-btn {*/
+/*  background-color: #e7e7e7;*/
+/*  border-radius: 12px;*/
+/*  transition-duration: 0.4s;*/
+/*  font-size: 16px;*/
+/*  padding: 5px 8px;*/
+/*}*/
+
+/*.detail-btn:hover {*/
+/*  background-color: #555555;*/
+/*  color: white;*/
+/*}*/
+
+.display_user_name {
+  font-size: 18px;
+}
+
+.display_img {
+  margin: 5px;
+}
+
+/*edit page*/
+.mydiv {
+  padding: 2%;
+}
+
+/* Reset some default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.navigation-bar {
+  background-color: #ffcc00;
+  padding: 10px 0;
+  align-items: center;
+}
+
+.logo {
+  max-width: 100px;
+  margin: 0 20px;
+}
+
+.user-info {
+  margin: 20px;
+  float: right;
+}
+
+/* Form styles */
+.row {
+  margin: 6% 5% 2%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background-color: #ddd;
+  border-radius: 25px;
+}
+
+.beverage_name, .display_beverage_type, .display_beverage_rate, .beverage_img {
+  flex-basis: calc(25% - 10px);
+  align-items: center;
+}
+
+.beverage_rate {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.beverage_rate div {
+  margin: 2%;
+}
+
+.beverage_img {
+  margin : 1rem;
+}
+
+.beverage_img label {
+  background-color: #ffcc00;
+  color: #0000ee;
+  padding: 0.5rem;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.review {
+  width: 100%; /* Take up 100% width */
+  margin-top: 10px; /* Spacing between the row and review */
+}
+
+.buttons {
+  display: flex;
+  justify-content: flex-end; /* Right bottom corner */
+  margin-top: 10px; /* Spacing below the review */
+  margin-right: 5%;
+}
+
+.rate:not(:checked) > input {
+  position:absolute;
+  top:-9999px;
+}
+
+.rate:not(:checked) > label {
+  float: right;
+  width:1em;
+  overflow:hidden;
+  white-space:nowrap;
+  cursor:pointer;
+  font-size:30px;
+  color:#454545; // contract
+}
+.rate:not(:checked) > label:before {
+  content: '★ ';
+}
+.rate > input:checked ~ label {
+  color: #ffc700;
+}
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+  color: #ffcc00;
+}
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+  color: #ffcc00;
+}
+
+.beverage_img {
+  border: none;
+  background-color: #ffcc00;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#review_text {
+  margin: 5%;
+  width: 90%;
+}
+
+textarea {
+  padding: 1%;
+  border-radius: 5px;
+}
+
+button#cancel_button, button#submit_button {
+  background-color: #ffcc00;
+  color: #0000ee;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px;
+}
+
+button#cancel_button:hover, button#submit_button:hover {
+  background-color: #ffcc00;
+}
+
+.centered-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; /* To center vertically */
+  text-align: center; /* To center text horizontally */
+}
+
+/* Add this to center the text inside the select element */
+.centered-div select {
+  text-align: center;
+}
+
+.edit_beverage_name {
+  width: 150px;
+}
+
+/* styling uploaded images */
+#image_preview {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+#image_preview div {
+  position: relative;
+  margin: auto 5%;
+}
+
+#image_preview img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#image_preview button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-color: #fff;
+  color: #ffcc00;
+  border: none;
+  cursor: pointer;
+}
+
+/*display page*/
+.display_card {
+  display: flex;
+  flex-direction: column;
+  background: #f7f7f7;
+  margin-top: 10px;
+  padding: 40px; /* Increased padding */
+  border-radius: 16px; /* Larger border radius */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Slightly larger shadow for effect */
+  max-width: 1000px; /* Increased max width */
+  margin: auto;
+  font-size: 1.2em; /* Increase base font size */
+}
+
+.display_card_top {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px; /* Increased space between sections */
+}
+
+.display-beverage-photo {
+  flex: 0 0 auto;
+  width: 300px; /* Increased image width */
+  height: auto;
+  margin-right: 40px; /* Increased space between image and text */
+  border-radius: 8px; /* Adjusted border-radius */
+}
+
+.beverage-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.beverage-info > div {
+  margin-bottom: 15px; /* Increased space between info items */
+}
+
+#display_card_beverage_rate span {
+  font-size: 2em; /* Larger star rating size */
+}
+
+#display_card_beverage_review textarea {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px; /* Increased padding inside textarea */
+  height: 150px; /* Increased height for the textarea */
+  font-size: 1em; /* Adjust font size if necessary */
+}
+
+/* Container for horizontal centering only */
+.center-container {
+  display: flex;
+  justify-content: center; /* Center children horizontally */
+  padding: 20px; /* Add some padding */
+}
+
+#edit_check, #edit_check_label {
+  margin: 50px 0px;
+}
+
+#edit_check {
+  margin-left: 100px;
+}
+
+#edit_check_label {
+  margin-left: 10px;
+}
